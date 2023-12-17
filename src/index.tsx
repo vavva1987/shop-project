@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-// withaut jsx
+// without jsx
 // const el = React.createElement('h1', { id: 'title' }, 'Hello Title')
 
 // with jsx
