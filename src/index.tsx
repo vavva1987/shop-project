@@ -26,19 +26,37 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 //         </p>
 //     </div>
 // )
-const App = () => {
+const Header = () => {
+    return <h1>Hello world</h1>
+}
+const Content = () => {
     return (
         <div>
-            <h1>hello world</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                voluptate, quisquam in adipisci beatae quos facilis, voluptatum
-                possimus labore quia, nulla distinctio nesciunt voluptatibus
-                vero fugiat atque sequi quam! Tempore?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Facilis vitae in tempore laborum veniam natus maiores minus? Ut
+                facere commodi tempora quia temporibus dolorem, nobis, incidunt
+                assumenda expedita ipsam debitis.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Facilis vitae in tempore laborum veniam natus maiores minus? Ut
+                facere commodi tempora quia temporibus dolorem, nobis, incidunt
+                assumenda expedita ipsam debitis.
             </p>
         </div>
     )
 }
+
+const App = () => {
+    return (
+        <div>
+            <Header />
+            <Content />
+        </div>
+    )
+}
+
 root.render(
     <React.StrictMode>
         <App />
