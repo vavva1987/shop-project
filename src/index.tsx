@@ -1,44 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Header from './Header'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-// without jsx
-// const el = React.createElement('h1', { id: 'title' }, 'Hello Title')
 
-// // with jsx
-// const a = 10
-// const el = <h1 id="title">Hello Title, {a}</h1>
-
-// const el = (
-//     <div>
-//         <h1>Hello React</h1>
-//         <p>
-//             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui
-//             officiis, blanditiis ea sit, nesciunt laudantium perferendis
-//             accusantium inventore illo consectetur amet atque fugiat ipsa
-//             necessitatibus soluta debitis eligendi eos.
-//         </p>
-//         <p>
-//             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui
-//             officiis, blanditiis ea sit, nesciunt laudantium perferendis
-//             accusantium inventore illo consectetur amet atque fugiat ipsa
-//             necessitatibus soluta debitis eligendi eos.
-//         </p>
-//     </div>
-// )
-
-type HeaderType = {
-    title: string
-    num?: number
-}
-
-const Header = (props: HeaderType) => {
-    return (
-        <h1>
-            Hello world {props.title} {props.num}
-        </h1>
-    )
-}
 const Content = () => {
     return (
         <React.Fragment>
@@ -61,8 +26,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Header title="App.js" num={10} />
-            <Header title="React.js" />
+            <Header title="App.js" num={10} bgColor="orange" position />
+            <Header title="React.js" bgColor="purple" />
             <Content />
         </>
     )
