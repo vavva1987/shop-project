@@ -31,7 +31,7 @@ const Header = () => {
 }
 const Content = () => {
     return (
-        <div>
+        <React.Fragment>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Facilis vitae in tempore laborum veniam natus maiores minus? Ut
@@ -44,16 +44,16 @@ const Content = () => {
                 facere commodi tempora quia temporibus dolorem, nobis, incidunt
                 assumenda expedita ipsam debitis.
             </p>
-        </div>
+        </React.Fragment>
     )
 }
 
 const App = () => {
     return (
-        <div>
+        <>
             <Header />
             <Content />
-        </div>
+        </>
     )
 }
 
