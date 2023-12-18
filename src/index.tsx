@@ -26,8 +26,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Header title="App.js" num={10} bgColor="orange" position />
-            <Header title="React.js" bgColor="purple" />
+            <Header title="App.js" num={10} />
+            <Header title="React.js" />
             <Content />
         </>
     )
