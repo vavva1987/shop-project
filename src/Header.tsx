@@ -8,7 +8,11 @@ type HeaderType = {
 
 const Header = ({ title, num }: HeaderType) => {
     return (
-        <h1 className={classes.title}>
+        <h1
+            className={clsx(`test ${classes.title}`, {
+                [classes.red]: num === 10,
+            })}
+        >
             Hello world {title} {num}
         </h1>
     )
