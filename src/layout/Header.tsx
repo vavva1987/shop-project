@@ -1,9 +1,8 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
-import logo from '../assets/logo.svg'
+import Logo from 'components/logo/Logo'
 
 type Props = {}
 
@@ -17,13 +16,7 @@ const Header = (props: Props) => {
         >
             <Container maxWidth="lg">
                 <Toolbar>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1 }}
-                    >
-                        <img src={logo} alt="" />
-                    </Typography>
+                    <Logo />
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </Container>
