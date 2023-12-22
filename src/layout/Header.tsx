@@ -1,8 +1,9 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import Logo from 'components/logo/Logo'
+import Menu from 'components/menu/Menu'
+import CartHeader from 'components/CartHeader/CartHeader'
 
 type Props = {}
 
@@ -17,7 +18,8 @@ const Header = (props: Props) => {
             <Container maxWidth="lg">
                 <Toolbar>
                     <Logo />
-                    <Button color="inherit">Login</Button>
+                    <Menu />
+                    <CartHeader />
                 </Toolbar>
             </Container>
         </AppBar>
