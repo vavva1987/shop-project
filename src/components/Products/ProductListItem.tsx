@@ -15,7 +15,9 @@ const ProductListItem = (props: Props) => {
                 <div className="product-features">Type: phone</div>
                 <div className="product-features">Capacity: 128GB</div>
                 <div className="product-price">1000 $</div>
-                <Button variant="outlined">Add to card</Button>
+                <div className="btns-wrap">
+                    <Button variant="outlined">Add to card</Button>
+                </div>
             </CardContent>
         </Card>
     )

@@ -14,4 +14,10 @@
 .product-price {
   font-size: 20px;
   text-align: center;
+  margin-bottom: 15px;
+}
+
+.btns-wrap {
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=ProductListItem.css.map */
