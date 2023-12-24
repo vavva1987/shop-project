@@ -42,11 +42,5 @@ export const productsArray: Products[] = [
   type:"phone",
   capacity:"128",
   price:950
-  },
-  { title:"iPhone 13",
-  description:"This is iPhone 15 Pro",
-  type:"phone",
-  capacity:"128",
-  price:750
   }
 ]
