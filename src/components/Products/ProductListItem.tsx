@@ -1,7 +1,7 @@
 import { Button, Card, CardContent } from '@mui/material'
 import './ProductListItem.scss'
 
-type ProductListItem = {
+type ProductListItemType = {
     title: string
     description: string
     type: string
@@ -15,7 +15,7 @@ const ProductListItem = ({
     type,
     capacity,
     price,
-}: ProductListItem) => {
+}: ProductListItemType) => {
     return (
         <Card>
             <CardContent
