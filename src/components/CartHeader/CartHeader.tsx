@@ -1,10 +1,15 @@
-type Props = {}
+type Props = {
+    cartData: {
+        totalCount: number
+        totalPrice: number
+    }
+}
 
-const CartHeader = (props: Props) => {
+const CartHeader = (cartData: Props) => {
     return (
         <div>
-            <div>0</div>
-            <div>$0</div>
+            <div>{cartData.cartData.totalCount}</div>
+            <div>${cartData.cartData.totalPrice}</div>
         </div>
     )
 }
