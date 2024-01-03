@@ -1,15 +1,18 @@
 type Props = {
-    cartData: {
-        totalCount: number
-        totalPrice: number
+    productsInCart: {
+        [id: number]: number
     }
 }
 
-const CartHeader = (cartData: Props) => {
+const CartHeader = ({ productsInCart }: Props) => {
+    console.log(productsInCart)
     return (
         <div>
-            <div>{cartData.cartData.totalCount}</div>
-            <div>${cartData.cartData.totalPrice}</div>
+            {Object.keys(productsInCart).map((productId) => (
+                <div key={productId}>
+                    {productId}: {productsInCart[+productId]}
+                </div>
+            ))}
         </div>
     )
 }
