@@ -9,6 +9,7 @@ type ProductListItemType = {
     capacity: string
     price: number
     images: string
+    addProductCart: (count: number, price: number) => void
 }
 
 const ProductListItem = ({
@@ -18,6 +19,7 @@ const ProductListItem = ({
     capacity,
     price,
     images,
+    addProductCart,
 }: ProductListItemType) => {
     const [count, setCount] = useState<number>(1)
 
@@ -61,7 +63,12 @@ const ProductListItem = ({
                     </Button>
                 </div>
                 <div className="btns-wrap">
-                    <Button variant="outlined">Add to card</Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => addProductCart(count, price)}
+                    >
+                        Add to card
+                    </Button>
                 </div>
             </CardContent>
         </Card>
