@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import CartProductList from 'components/CartProductList/CartProductList'
 import CartTotal from 'components/CartTotal/CartTotal'
 import { Products, getProductsObject, productsArray } from 'utils/productsArray'
 
@@ -20,15 +21,7 @@ const CartPage = ({
             <Typography component={'h1'} variant="h4">
                 Cart
             </Typography>
-            <div>
-                {Object.keys(productsInCart).map((productId) => (
-                    <div key={productId}>
-                        {productsObject[+productId].title}:{' '}
-                        {productsInCart[+productId]}:{''}
-                        {productsObject[+productId].price}
-                    </div>
-                ))}
-            </div>
+            <CartProductList productsInCart={productsInCart} />
             <CartTotal productsInCart={productsInCart} />
         </div>
     )
