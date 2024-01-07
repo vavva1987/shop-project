@@ -1,21 +1,14 @@
 import { Typography } from '@mui/material'
 import CartProductList from 'components/CartProductList/CartProductList'
 import CartTotal from 'components/CartTotal/CartTotal'
-import { Products, getProductsObject, productsArray } from 'utils/productsArray'
 
 type Props = {
     productsInCart: {
         [id: number]: number
     }
-    productsObject?: {
-        [id: number]: Products
-    }
 }
 
-const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}: Props) => {
+const CartPage = ({ productsInCart }: Props) => {
     return (
         <div>
             <Typography component={'h1'} variant="h4">
