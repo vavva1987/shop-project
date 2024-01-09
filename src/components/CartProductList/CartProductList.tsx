@@ -17,7 +17,7 @@ const CartProductList = ({
     CartItem = CartProductListItem,
 }: Props) => {
     return (
-        <div>
+        <>
             {Object.keys(productsInCart).map((productId) => (
                 <CartItem
                     key={productId}
@@ -25,7 +25,7 @@ const CartProductList = ({
                     productCount={productsInCart[+productId]}
                 />
             ))}
-        </div>
+        </>
     )
 }
 
