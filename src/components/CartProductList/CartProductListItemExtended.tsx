@@ -11,7 +11,6 @@ type Props = {
 
 const CartProductListItemExtended = ({
     product,
-    productCount,
     removeProductFromCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
@@ -30,7 +29,7 @@ const CartProductListItemExtended = ({
                     </div>
                     <div>{product.title}</div>
                     <p>Price for one product: {product.price}</p>
-                    {/* <p>Count: {productCount}</p> */}
+
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
