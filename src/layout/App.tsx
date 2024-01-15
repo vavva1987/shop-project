@@ -17,8 +17,8 @@ type ProductsInCartType = {
 
 const App = (props: Props) => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCartType>({
-        1: 5,
-        2: 5,
+        1: 1,
+        2: 1,
     })
 
     const addProductCart = (id: number, count: number) => {
@@ -30,6 +30,13 @@ const App = (props: Props) => {
 
     const removeProductFromCart = (id: number) => {
         setProductsInCart((prevState) => omit(prevState, id))
+    }
+
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
     }
 
     return (
@@ -51,6 +58,7 @@ const App = (props: Props) => {
                         path="cart"
                         element={
                             <CartPage
+                                changeProductQuantity={changeProductQuantity}
                                 removeProductFromCart={removeProductFromCart}
                                 productsInCart={productsInCart}
                             />
