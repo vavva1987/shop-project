@@ -7,7 +7,6 @@ import {
     Typography,
 } from '@mui/material'
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
 
 type Props = {}
 
