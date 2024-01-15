@@ -1,4 +1,5 @@
 import {
+    Button,
     Card,
     CardContent,
     TextField,
@@ -29,15 +30,47 @@ const Reviews = (props: Props) => {
     ]
 
     const [reviews, setReviews] = useState<Review[]>(arrReviews)
+    const [newReview, setNewReview] = useState<Review>({
+        name: '',
+        text: '',
+    })
 
+    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewReview((prevState) => ({
+            ...prevState,
+            name: e.target.value,
+        }))
+    }
+
+    const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setNewReview((prevState) => ({
+            ...prevState,
+            text: e.target.value,
+        }))
+    }
+
+    const onSend = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (newReview.name === '' || newReview.text === '') {
+            alert('All fields are requided!')
+        } else {
+            setReviews((prevState) => {
+                return [...prevState, newReview]
+            })
+            setNewReview({
+                name: '',
+                text: '',
+            })
+        }
+    }
     return (
         <>
             <Typography variant="h4" component={'h2'} sx={{ margin: '40px 0' }}>
                 Reviews
             </Typography>
             <div>
-                {reviews.map(({ name, text }) => (
-                    <Card variant="outlined" sx={{ margin: '20px 0' }}>
+                {reviews.map(({ name, text }, i) => (
+                    <Card variant="outlined" sx={{ margin: '20px 0' }} key={i}>
                         <CardContent>
                             <div>{name}:</div>
                             <div>{text}</div>
@@ -45,15 +78,28 @@ const Reviews = (props: Props) => {
                     </Card>
                 ))}
             </div>
-            <form action="">
+            <form onSubmit={onSend} action="">
                 <h3>Please live your review</h3>
                 <div>
-                    <TextField size="small" placeholder="Your name" />
+                    <TextField
+                        label="Your name"
+                        size="small"
+                        onChange={handleChangeName}
+                        value={newReview.name}
+                    />
                 </div>
                 <br />
                 <div>
-                    <TextareaAutosize minRows={5} placeholder="Your text" />
+                    <TextareaAutosize
+                        minRows={5}
+                        placeholder="Your text"
+                        onChange={handleChangeText}
+                        value={newReview.text}
+                    />
                 </div>
+                <Button type="submit" variant="outlined">
+                    Send
+                </Button>
             </form>
         </>
     )
