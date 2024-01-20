@@ -2,6 +2,10 @@ import { Button, Card, CardContent, Grid } from '@mui/material'
 import { Products } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Quantity from 'components/Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispatch, useAppSelector } from '../../redax/hooks'
+import { toggleLikeState } from '../../redax/likeReducer'
 
 type Props = {
     product: Products
@@ -16,10 +20,22 @@ const CartProductListItemExtended = ({
     productCount,
     changeProductQuantity,
 }: Props) => {
+    const isLicked = useAppSelector(
+        (state) => state.productsLikeState[product.id]
+    )
+
+    const dispatch = useAppDispatch()
+
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card variant="outlined">
                 <CardContent>
+                    <Button
+                        variant="outlined"
+                        onClick={() => dispatch(toggleLikeState(product.id))}
+                    >
+                        {isLicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                     <div className="product-img">
                         <img src={product.images} alt={product.title} />
                     </div>
