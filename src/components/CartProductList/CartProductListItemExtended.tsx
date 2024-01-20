@@ -4,8 +4,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useAppDispatch, useAppSelector } from '../../redax/hooks'
-import { toggleLikeState } from '../../redax/likeReducer'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { toggleLikeState } from '../../store/likeReducer'
 
 type Props = {
     product: Products
