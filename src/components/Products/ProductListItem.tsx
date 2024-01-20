@@ -2,6 +2,10 @@ import { Button, Card, CardContent } from '@mui/material'
 import './ProductListItem.scss'
 import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispatch, useAppSelector } from '../../redax/hooks'
+import { toggleLikeState } from '../../redax/likeReducer'
 
 type ProductListItemType = {
     id: number
@@ -33,15 +37,27 @@ const ProductListItem = ({
         setCount((prevState) => prevState - 1)
     }
 
+    const isLicked = useAppSelector((state) => state.productsLikeState[id])
+
+    const dispatch = useAppDispatch()
+
     return (
         <Card>
             <CardContent
                 className="product-list-item"
                 sx={{ variant: 'outlined' }}
             >
+                <Button
+                    variant="outlined"
+                    onClick={() => dispatch(toggleLikeState(id))}
+                >
+                    {isLicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
+
                 <div className="product-img">
                     <img src={images} alt={title} />
                 </div>
+
                 <h2 className="product-title">{title}</h2>
                 <p className="product-description">{description}</p>
                 <div className="product-features">Type: {type}</div>
