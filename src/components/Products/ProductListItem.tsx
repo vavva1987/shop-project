@@ -5,7 +5,8 @@ import Quantity from 'components/Quantity/Quantity'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { toggleLikeState } from '../../store/likeReducer'
+import { toggleLikeState } from '../../store/likeSlice'
+import { addProductToCart } from 'store/cartSlice'
 
 type ProductListItemType = {
     id: number
@@ -15,7 +16,7 @@ type ProductListItemType = {
     capacity: string
     price: number
     images: string
-    addProductCart: (id: number, count: number) => void
+    addProductCart?: (id: number, count: number) => void
 }
 
 const ProductListItem = ({
@@ -26,7 +27,6 @@ const ProductListItem = ({
     capacity,
     price,
     images,
-    addProductCart,
 }: ProductListItemType) => {
     const [count, setCount] = useState<number>(1)
 
@@ -73,7 +73,9 @@ const ProductListItem = ({
                 <div className="btns-wrap">
                     <Button
                         variant="outlined"
-                        onClick={() => addProductCart(id, count)}
+                        onClick={() =>
+                            dispatch(addProductToCart({ id, count }))
+                        }
                     >
                         Add to card
                     </Button>
